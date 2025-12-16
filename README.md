@@ -1,124 +1,145 @@
-Global Demographic Growth Analysis & Prediction
-Course: Tools & Techniques for Data Science
 
-Student: Fatima Shaheen (MSCS23019)
-📌 Project Overview
-This project analyzes global demographic trends using a comprehensive dataset sourced from Google Cloud Platform (GCP). The analysis focuses on population dynamics such as birth rates, death rates, migration patterns, and overall growth trends across various countries over time. Additionally, Machine Learning models were implemented to predict future population growth rates.
-📊 Dataset
-The dataset was retrieved from the Google Cloud BigQuery Public Datasets:
+# Global Demographic Growth Analysis & Prediction
 
-Table ID: bigquery-public-data.census_bureau_international.birth_death_growth_rates
+## Course
+**Tools & Techniques for Data Science (TTDS)**
 
-Description: It includes annual population-related indicators for countries worldwide.
+## Student Information
+- **Name:** Fatima Shaheen  
+- **Registration No:** MSCS23019  
+- **Program:** MS Computer Science  
 
-Key Features:
-country_code: Unique identifier for each country.
+---
 
-country_name: Full name of the country.
+## 📌 Project Overview
+This semester project presents a comprehensive analysis of **global demographic growth patterns** using real-world public data. The study examines population dynamics including **birth rates, death rates, migration trends**, and **overall population growth** across multiple countries over time.
 
-year: The calendar year of the record.
+In addition to exploratory and statistical analysis, **machine learning models** were developed and evaluated to predict **future population growth rates**, making this project both analytical and predictive in nature.
 
-crude_birth_rate: Live births per 1,000 individuals.
+---
 
-crude_death_rate: Deaths per 1,000 individuals.
+## 🎯 Objectives
+The primary objectives of this project are:
+- To analyze global demographic indicators using structured data  
+- To perform data cleaning and exploratory data analysis (EDA)  
+- To visualize population trends across countries and years  
+- To build and evaluate machine learning models for population growth prediction  
+- To identify the most suitable predictive model based on performance metrics  
 
-net_migration: Difference between immigrants and emigrants.
+---
 
-natural_increase_rate: Natural population change (Birth Rate - Death Rate).
+## 📊 Dataset Description
 
-population_growth_rate: Total annual growth rate including migration.
+### Data Source
+The dataset was retrieved from the **Google Cloud BigQuery Public Datasets**.
 
-🛠 Tools & Technologies Used
-Language: Python / R
+- **Table ID:**  
+  `bigquery-public-data.census_bureau_international.birth_death_growth_rates`
 
-Data Processing: PySpark, Pandas
+### Dataset Overview
+The dataset contains **annual population-related indicators** for countries worldwide, enabling longitudinal analysis of demographic trends.
 
-Environment: Google Colab
+---
 
-Cloud Services: Google Cloud Platform (BigQuery)
+## 🔑 Dataset Features
+- **country_code:** Unique identifier for each country  
+- **country_name:** Full name of the country  
+- **year:** Calendar year of the record  
+- **crude_birth_rate:** Live births per 1,000 individuals  
+- **crude_death_rate:** Deaths per 1,000 individuals  
+- **net_migration:** Difference between immigrants and emigrants  
+- **natural_increase_rate:** Natural population change (Birth Rate − Death Rate)  
+- **population_growth_rate:** Total annual growth rate including migration  
 
-Version Control: Git, GitHub
+---
 
-Visualization: Matplotlib / Seaborn (implied from chart descriptions)
+## 🛠 Tools & Technologies Used
+- **Programming Languages:** Python 
+- **Data Processing:** PySpark, Pandas  
+- **Visualization:** Matplotlib, Seaborn  
+- **Machine Learning:** Scikit-learn  
+- **Cloud Platform:** Google Cloud Platform (BigQuery)  
+- **Development Environment:** Google Colab, Jupyter Notebook  
+- **Version Control:** Git, GitHub  
 
-🔍 Methodology
-1. Exploratory Data Analysis (EDA)
-Comprehensive EDA was performed to understand the data structure and quality:
+---
 
-Schema validation and data type checking.
+## 🔍 Methodology
 
-Summary statistics (mean, min, max, std dev) for numerical columns.
+### 1. Exploratory Data Analysis (EDA)
+EDA was conducted to understand the structure, quality, and behavior of the data:
+- Schema validation and data type verification  
+- Summary statistics (mean, minimum, maximum, standard deviation)  
+- Detection and removal of null values and duplicates  
+- Distribution analysis of population growth indicators  
 
-Null value detection and duplicate removal.
+### 2. Data Cleaning & Preprocessing
+To ensure data reliability:
+- Duplicate records were removed  
+- Missing values were handled appropriately  
+- Data types were converted for numerical accuracy  
+- Invalid or unrealistic values were filtered  
 
-Distribution analysis of key variables like growth_rate.
+### 3. Data Visualization
+Multiple visualizations were generated to identify trends and patterns:
+- **Line Charts:** Population growth trends over time  
+- **Bar Charts:** Comparison of birth rates, death rates, and migration  
+- **Heatmaps:** Correlation analysis among demographic variables  
+- **Box Plots:** Distribution analysis and outlier detection  
 
-2. Data Cleaning
-Removal of duplicate records to ensure data integrity.
+### 4. Machine Learning Modeling
+The following regression models were implemented to predict **population growth rate**:
+- Linear Regression (**Best Performing Model**)  
+- Random Forest Regressor  
+- XGBoost Regressor  
+- Lasso Regression  
+- Support Vector Regression (SVR)  
 
-Handling of missing/null values to prevent calculation errors.
+---
 
-Type conversion for accurate mathematical operations.
+## 📈 Results & Evaluation
 
-Filtering of invalid entries (e.g., unrealistic negative values).
+### Model Selection
+Based on comparative analysis, **Linear Regression** was selected as the final model.
 
-3. Visualization
-Various charts were generated to identify trends and outliers:
+#### Justification:
+- **Limited Dataset Size:** Complex tree-based models exhibited overfitting  
+- **Linear Relationships:** Strong linear correlation between growth rate, birth rate, and migration  
+- **Interpretability:** Linear Regression provided transparent and explainable results  
 
-Line Charts: Growth rate trends over years and across countries.
+### Performance Metrics (Linear Regression)
+- **Mean Squared Error (MSE):** 1.97  
+- **R² Score:** 0.61  
+  - Explains approximately **61% of the variance** in population growth rate  
 
-Bar Charts: Comparison of birth/death rates and net migration.
+### Prediction Example
+- **Scenario:** Population growth forecast for the year 2027  
+- **Predicted Growth Rate:** ~1.72%  
 
-Heatmaps: Correlation analysis between demographic variables.
+---
 
-Box Plots: To visualize data distribution and detect outliers.
+## 🚀 How to Run the Project
 
-4. Machine Learning Modeling
-Five different machine learning models were trained to predict the Population Growth Rate:
-
-Linear Regression (Best Performer)
-
-Random Forest Regressor
-
-XGBoost Regressor
-
-Lasso Regression
-
-Support Vector Regression (SVR)
-
-📈 Results & Evaluation
-Linear Regression was selected as the optimal model for this dataset.
-
-Why Linear Regression?
-
-The dataset features (crude_birth_rate, net_migration, etc.) exhibit strong linear relationships with the target variable.
-
-Tree-based models (Random Forest, XGBoost) suffered from overfitting due to the limited dataset size.
-
-Linear Regression provided the most interpretable results and the lowest error.
-
-Model Performance (Linear Regression):
-Mean Squared Error (MSE): 1.97
-
-R² Score: 0.61 (Explains 61% of the variance)
-
-Prediction Example:
-Scenario: Forecasting for the year 2027.
-
-Predicted Growth Rate: ~1.72% (based on test input values).
-
-🚀 How to Run
-Clone the repository:
-
-Bash
-
+### Step 1: Clone the Repository
+```bash
 git clone https://github.com/itsfaama/TTDS_Semester_Project.git
-Open the notebook in Google Colab or a local Jupyter environment.
 
-Ensure you have the required libraries installed (pyspark, pandas, matplotlib, scikit-learn).
+### Step 2: Execute the Notebook
 
-Load the dataset (connection to GCP BigQuery may be required if not using a local CSV dump).
+1. Open the project notebook in **Google Colab** or **Jupyter Notebook**.
 
-Run the cells sequentially to reproduce the EDA, visualizations, and model predictions.
+2. Install the required libraries:
+   ```bash
+   pip install pyspark pandas matplotlib scikit-learn
+Load the dataset:
 
-This project was completed as part of the MSCS coursework requirements.
+Establish a connection with Google Cloud BigQuery (if required)
+
+Ensure proper authentication and permissions
+
+Run the notebook:
+
+Execute all cells sequentially
+
+This will reproduce the EDA, visualizations, and machine learning predictions
+
